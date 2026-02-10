@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>M.Savar Gallery</title>
+
+<style>
+/* BASIC RESET */
+body {
+    font-family: Arial, sans-serif;
+    background: #648167;
+    padding: 20px;
+}
+
+h2{
+    color: azure;
+  
+}
+/* GALLERY GRID */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* change columns here */
+    gap: 15px;
+}
+
+/* IMAGE BOX */
+.gallery img {
+     width: 100%;
+    height: 300px;      /* SAME height for all images */
+    object-fit: cover; /* crop image nicely */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+/* HOVER EFFECT */
+.gallery img:hover {
+    transform: scale(1.05); /* change hover size */
+}
+
+/* POPUP */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+}
+
+.popup img {
+    width: 60%; /* change popup size */
+    display: block;
+    margin: 100px auto;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Photo Gallery Deep forest</h2>
+<h4>M.Savar</h4>
+
+<div class="gallery">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYI_JIh0g72GsR3o09xbLRmC6g5Jvu8XecqA&s">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWY29Fqn2SGt84_a0MwV4Wo6xYqH99vfMGCw&s">
+    <img src="https://www.shutterstock.com/image-photo/sunbeams-dark-forest-deep-tree-600nw-2111912156.jpg">
+    <img src="https://media.istockphoto.com/id/1146417862/photo/a-mysterious-dark-forest-with-an-atmosphere-during-the-misty-morning-in-autumn.jpg?s=612x612&w=0&k=20&c=OS9lEJsQgp0X7s4to_GPNZUaAc-54-i6hKRLrZ7Q-MM=">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr-gXntOv10rwC9lD1Ee5XbC3s3EG9MvW2Zg&s">
+       <img src="https://thumbs.dreamstime.com/b/forest-spring-mixed-tree-40273683.jpg">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNOZDZLythpeT8RyiYXPAVk595033i-PDINQ&s">
+       <img src="https://cdn.pixabay.com/photo/2017/03/12/17/24/forest-2137574_640.jpg">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9kOu8-XD1SJxNfHiFfD6Ro1xRlQwxb5C1e_UPjb4K&s">
+    </div>
+
+<!-- POPUP IMAGE -->
+<div class="popup" id="popup">
+
+    <img id="popupImg">
+</div>
+
+<script>
+const images = document.querySelectorAll('.gallery img');
+const popup = document.getElementById('popup');
+const popupImg = document.getElementById('popupImg');
+
+images.forEach(img => {
+    img.onclick = () => {
+        popup.style.display = "block";
+        popupImg.src = img.src;
+    }
+});
+
+popup.onclick = () => {
+    popup.style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
